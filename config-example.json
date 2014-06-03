@@ -1,0 +1,10 @@
+{
+  "host": "localhost",
+  "port": 3060,
+  "admin": {"username": "admin", "password": "password"},
+  "author": "mpr0xy",
+  "disqus": "mpr0xy",
+  "paths": {
+    "articles": "markdown"
+  }
+}
