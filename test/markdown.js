@@ -1,12 +1,6 @@
-var markdown = require( "markdown" ).markdown;
-console.log( markdown.toHTML( "```Hello``` *World*!\
-dfadfad\
-\n\
-# dfadf\n\
-\
-=== dfadfaf ===\
-```bash\
-<dfadf>\
-<dfadf>\
-```\
-  " ) );
+var markdownblog = require('./../lib/markdownblog')
+
+markdownblog.init('./../markdown')
+console.info(markdownblog.getArticle(1001))
+
+console.info(markdownblog.getArticle('markdown-guide'))
