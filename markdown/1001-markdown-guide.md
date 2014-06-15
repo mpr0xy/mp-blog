@@ -1,4 +1,5 @@
-/*
+/*<<
+
  Title: markdown guide
  Hidden: false
  Date: 2014-06-05 08:34:26
@@ -6,7 +7,7 @@
  Category: guide
  Sources:
    whyexploit: http://whyexploit.com 
-*/
+>>*/
 
 
 # 这是 H1 #

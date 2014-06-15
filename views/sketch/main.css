@@ -1,0 +1,134 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+/* main.css */
+.header {
+  width: 100%;
+  background: #242d36;
+  border-bottom: 5px solid #1e252d;
+  margin: 0;
+  position: relative;
+  z-index: 100;
+  font-family: inherit;
+  overflow: hidden;
+  color: #f0f1f3;
+  height: 40px;
+}
+
+.nav {
+  padding: 0 20px;
+}
+
+.header h3 {
+  float: left;
+  margin: 0 0 0 0;
+  padding: 10px 0px;
+  position: relative;
+}
+
+.header ul {
+  float: right;
+}
+
+.header ul li {
+  display:inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 30px;
+}
+
+.header ul li a {
+  text-decoration: none;
+  color: #f0f1f3;
+  padding-bottom: 2px;
+}
+
+.border-bottom {
+  border-bottom-style: solid;
+}
+
+.border-green {
+  border-color: #b1e8e6;
+}
+
+.border-red {
+  border-color: #f77e75
+}
+
+.container {
+  margin: 20px auto;
+  overflow: hidden;
+}
+.debug {
+  border-style: solid
+}
+.content {
+  float: left;
+  width: 100%;
+  margin: 0 -25% 0 0;
+  overflow: hi
+}
+
+.article {
+  margin: 0 25% 0 0;  
+}
+
+.article-title {
+  margin-top: 20px;
+}
+
+
+.article-info {
+  margin: 20px 0;
+  color: #999999;  
+}
+
+.article-data {
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 30px;
+}
+
+.comment {
+  margin: 20px 0;
+}
+.comment-tabs {
+  color: #333;
+  font-size: 18px;
+}
+
+.widget-area {
+  float: right;
+  width: 20%;
+  height: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.widget {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 27px;
+  overflow: hidden;
+}
+
+.widget-search .form-group {
+  width:100%;
+}
+
+.form-control:focus {
+  border-color: #f77e75;
+}
+
+.search {
+  padding: 10px 12px;
+  height: 100%;
+  font-size: 15px;
+}
+
+p .contact {
+  color: #f77e75;
+  font-size: 18px;
+}
