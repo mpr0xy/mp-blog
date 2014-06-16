@@ -1,0 +1,68 @@
+extend layout
+block content
+  <div class="container">
+  <div class="content">
+    <div class="article">
+      <h1 class="article-title">标题</h1>
+      <div class="article-info">
+        <p>2014-06-15　tag 访问量</p>
+      </div>
+      <div class="article-data">
+        <p>this is my first article</p>
+        <p>是我自己选择来北京的，结果来了又有一种害怕感，仿佛丢失了自己得勇气和毅力．</p>
+      </div>
+      
+      <div class="comment">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#uyan" data-toggle="tab" class="comment-tabs">友言</a></li>
+          <li><a href="#disqus" data-toggle="tab" class="comment-tabs">disqus</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="uyan">
+            <!-- UY BEGIN -->
+            <div id="uyan_frame"></div>
+            <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1934226"></script>
+            <!-- UY END -->
+          </div>
+          <div class="tab-pane" id="disqus">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'mpr0xy'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="widget-area">
+    <div class="widget widget-search">
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <input type="search" class="form-control search" placeholder="search...">
+            </div>
+        </form>
+    </div>
+    <div class="widget widget-about">
+        <h3>这是我</h3>
+        <p>我是mpr0xy，一名web开发者，网络安全爱好者．</p>
+        <p>这个博客用来使自己能逐渐提高．当然也为了读者．<p>
+        <p><a href="#" class="contact">@Github</a></p>
+    </div>
+    <div>Categories</div>
+    <div>Archives</div>
+  </div>
+</div>

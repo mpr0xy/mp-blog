@@ -2,8 +2,13 @@ doctype
 html()
   head
     meta(charset="utf-8")
+    link(rel="stylesheet", href="/styles/bootstrap.min.css")
     link(rel="stylesheet", href="/styles/main.css")
     link(rel="icon" href="favicon.ico" type="image/x-icon")
   body
-    p Hello,World!
+    include header
     block content
+
+  script(src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js")
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  script(src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js")
