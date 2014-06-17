@@ -5,7 +5,7 @@ var express = require('express');
 var lessMiddleware = require('less-middleware');
 var morgan  = require('morgan');
 var bodyParser = require('body-parser');
-var mdb = require('node-markdownblog');
+var mdb = require('./lib/markdownblog');
 
 /**
  * Load config JSON file
@@ -19,25 +19,26 @@ if (is_BAE){
   config.port = 18080;
 }
 
+
 /**
  * Set default category and set default URL
  **/
-mdb.setDefault('category', 'General');
-mdb.setDefault('url', 'http://' + config.host + (is_BAE ? '' : ':' + config.port));
+// mdb.setDefault('category', 'General');
+// mdb.setDefault('url', 'http://' + config.host + (is_BAE ? '' : ':' + config.port));
 
 /**
  * Set basic variables passed to jade template
  **/
-mdb.setMeta('site', config.host); 
-mdb.setMeta('url', 'http://' + config.host);
-mdb.setMeta('author', config.author);
+// mdb.setMeta('site', config.host); 
+// mdb.setMeta('url', 'http://' + config.host);
+// mdb.setMeta('author', config.author);
 // mdb.setMeta('disqus', config.disqus);
 
 
 /**
  * Index markdown folder
  **/
-mdb.index(__dirname + '/' + config.paths.articles);
+mdb.init(__dirname + '/' + config.paths.articles);
 
 
 var app = express();
@@ -66,22 +67,15 @@ app.get('/', function(req, res){
  * Display single blog post
  * @example http://xxx.com/markdown-guide-3158.html
  **/
-app.get(/([A-Za-z0-9\-]+\-([0-9]+)\.html)/, function(req, res) {
+app.get(/([A-Za-z0-9\-]+)(\.html)?/, function(req, res) {
   
-  var item = mdb.getArticle([req.params[1]], '');
+  console.log(req.params[0]);
+  var item = mdb.getArticle(req.params[0]);
   if (!item) {
-    throw new NotFound; 
-  }
-  if (item.url != mdb.getDefault('url') + req.url) {
-    return res.redirect(item.url, 301); 
+    res.end('not found')
   }
     
-  mdb.setMeta('url', item.url);
-  mdb.setMeta('title', item.name);
-  mdb.setMeta('headline', item.name); 
-  mdb.setMeta('current', 'posts');
-  
-  res.send(item.html);
+  res.render('article', {article: item});
 });
 
 
