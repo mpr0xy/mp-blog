@@ -9,4 +9,5 @@
 
 
 TODO List
-重写markdownblog．使得支持更好得markdown格式
+* 完成首页设计．
+* 首页返回文章列表和摘要，并分页．
