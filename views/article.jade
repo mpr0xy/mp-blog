@@ -3,12 +3,11 @@ block content
   .container
     .content
       .article
-        h1.article-title 标题
+        h1.article-title #{article.name}
         .article-info
-          p 2014-06-15　tag 访问量
-        .article-data
-          p this is my first article
-          p 是我自己选择来北京的，结果来了又有一种害怕感，仿佛丢失了自己得勇气和毅力．
+          p #{article.date.format('LLLL')}　tags: #{article.tags.join(' ')} 
+        .article-data 
+          !=article.html
         .comment
           // Nav tabs
           ul.nav.nav-tabs

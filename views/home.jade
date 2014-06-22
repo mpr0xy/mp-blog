@@ -11,5 +11,5 @@ block content
               .article-excerpt 
                 p!=articles[i].excerpt
               .article-info
-                p #{articles[i].date.fromNow()}　Tags: #{articles[i].tags.join(' ')} 
+                p(title=articles[i].date.format('LLLL')) #{articles[i].date.fromNow()}　Tags: #{articles[i].tags.join(' ')} 
     include widget

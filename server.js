@@ -60,7 +60,7 @@ app.use(morgan());
 // default route
 app.get('/', function(req, res){
   articles = mdb.getArticles()
-  res.render('home', {articles: articles.slice(0, 7)})
+  res.render('home', {articles: articles.slice(0, 5)})
 });
 
 
