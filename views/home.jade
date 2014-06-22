@@ -3,10 +3,13 @@ block content
   .container
     .content
       ul.thumbnails
-        li
-          .article 
-            p this is a pop
-        li
-          .article
-            p this is a push
+        - for (var i = 0; i < articles.length; i++)
+          li
+            .article
+              a(href=articles[i].filename)
+                h2.article-title #{articles[i].name}
+              .article-excerpt 
+                p!=articles[i].excerpt
+              .article-info
+                p #{articles[i].date.fromNow()}　Tags: #{articles[i].tags.join(' ')} 
     include widget
