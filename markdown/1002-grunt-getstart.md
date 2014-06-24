@@ -15,7 +15,7 @@ GRUNT
 
 官方网站有一个预览，我截了一个图,可以看到运行grunt后，依次完成了很多任务，最后输出全部完成没有错误．
 
-![grunt preview](http://d.pcs.baidu.com/thumbnail/f1022b7c8ab47ee25e1510be21f5cca2?fid=2889760516-250528-740381447657460&time=1403503200&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-BFGYOnH250UzHui8y2bw9dkEXW0%3D&rt=sh&expires=2h&r=830640308&sharesign=unknown&size=c710_u500&quality=100)
+![grunt preview](http://v1.freep.cn/3tb_140624105405bqf1512293.png)
 
 
 如何开始
@@ -31,14 +31,14 @@ Getting Started
 --------
 Grunt和Grunt的插件都是通过[npm](https://npmjs.org/)安装管理的，所以确保你已经安装好了它，并且Node.js的版本`>=0.8.0`
 
-### 安装命令行接口
+## 安装命令行接口
 为了能够启动Grunt，需要安装命令行接口，它得工作是启动
 你已经安装好的一个Grunt版本，在接下来得Gruntfile里会涉及到，这将允许多个不同版本得Grunt在你机器上允许．^_^
 ```
 npm install -g grunt-cli
 ```
 
-### 命令行接口是怎么工作得
+## 命令行接口是怎么工作得
 简单介绍后，官网让我们看一段简短的代码：
 ```
 #!/usr/bin/env node
@@ -90,29 +90,29 @@ require(gruntpath).cli();
 ```
 这段代码利用findup或resolve来得到grunt的入口文件，最后用require加载，这样就启动了项目中安装得grunt了．
 
-### 在存着Grunt的项目里工作
+## 在存着Grunt的项目里工作
 1. 到项目得根目录 
 2. 使用`npm install`安装项目依赖
 3.　运行Grunt `grunt`
 
-### 准备一个新的Grunt项目
+## 准备一个新的Grunt项目
 两个重要得文件
 
 * package.json 
 * Gruntfile (名字是Gruntfile.js或者Gruntfile.coffee)
 
-#### package.json
+### package.json
 这里有几种方法可以创建package.json文件
 
 * [grunt-init](http://gruntjs.com/project-scaffolding)
 * [npm init](https://npmjs.org/doc/init.html)
 * [specification](https://npmjs.org/doc/json.html)
 
-#### 安装Grunt和Grunt插件
+### 安装Grunt和Grunt插件
 如果存着package.json使用这个命令安装
 `npm install <module> --save-dev`．这个命令不仅安装了`<module>`,还自动把模块添加到了devDependencies节．
 
-### Gruntfile
+## Gruntfile
 Gruntfile是一个有效的js或者CoffeeScript文件，放在项目得根目录．
 
 一个Grunt文件包含下面几个部分：
@@ -123,7 +123,7 @@ Gruntfile是一个有效的js或者CoffeeScript文件，放在项目得根目录
 * 自定义任务
 
 
-### 一个Gruntfile
+## 一个Gruntfile
 
 ```
 module.exports = function(grunt) {
@@ -151,7 +151,7 @@ module.exports = function(grunt) {
 };
 ```
 
-#### ＂包装＂函数
+### ＂包装＂函数
 每个Gruntfile使用的基本格式
 ```
 module.exports = function(grunt){
@@ -159,10 +159,10 @@ module.exports = function(grunt){
 }
 ```
 
-#### 项目和任务配置
+### 项目和任务配置
 grunt.initConfig里，pkg是读取package.json里的元数据，而uglify是用来压缩文件的，banner是自定义的一段注释，build指定了压缩的源文件和目标文件．
 
-#### 加载Grunt插件和任务
+### 加载Grunt插件和任务
 ```
 // Load the plugin that provides the "uglify" task.
 grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -171,7 +171,7 @@ grunt.loadNpmTasks('grunt-contrib-uglify');
 
 Note:`grunt --help`可以列出可用的任务
 
-#### 自定义任务
+### 自定义任务
 你可以自定义一个或多个任务作为默认任务，这样运行`grunt`时就会运行默认任务．
 
 如果你需要的任务没在插件里，你可以使用

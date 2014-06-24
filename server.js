@@ -52,7 +52,7 @@ app.set('views', __dirname + '/views');
 app.use(lessMiddleware(__dirname + '/public'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());                            // parse application/json and application/x-www-form-urlencoded
-app.use(morgan());
+app.use(morgan('short'));
 
 
 

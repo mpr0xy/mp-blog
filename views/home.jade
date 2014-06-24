@@ -4,8 +4,8 @@ block content
     .content
       ul.thumbnails
         - for (var i = 0; i < articles.length; i++)
-          li
-            .article
+          li.thumbnails-li
+            .thumbnails-article
               a(href=articles[i].filename)
                 h2.article-title #{articles[i].name}
               .article-excerpt 
