@@ -36,7 +36,7 @@
 
 
 ### 2 请指出下列代码运行结果，并解释原因：
-```
+<pre class="prettyprint">
 var foo = function(name){
     alert('I am ' + name);
 }
@@ -44,10 +44,11 @@ var foo = function(name){
 foo('Tom');
 
 function foo(name){
-    alert(na高me);
+    alert(name);
 }
+</pre>
 
-```
+
 我猜得答案是弹出Tom,因为我写node.js时遇到过这种情况，程序选择调用后面函数．
 
 还是运行来看看吧．结果时我错了，foo调用的是var foo定义的函数．难道时变量得优先级比函数高，事实时函数得声明比变量得声明优先级高，但是变量被赋值后，变量就成了被赋值得类型．
@@ -73,12 +74,14 @@ function foo(name){
 ～
 
 ### 5 使用js获取当前时间戳
-```
+
+<pre class="prettyprint">
 new Date().getTime()
-```
+</pre>
 
 在网上找到一段更详细的
-```
+
+<pre class="prettyprint">
 JavaScript 获取当前时间戳：
 第一种方法：
 
@@ -97,7 +100,8 @@ var timestamp=new Date().getTime()；
 第一种：获取的时间戳是把毫秒改成000显示，
 
 第二种和第三种是获取了当前毫秒的时间戳。
-```
+</pre>
+
 #### 参考
 * [JS获取当前时间戳的方法](http://blog.sina.com.cn/s/blog_8772845101019kg5.html)
 
@@ -106,7 +110,7 @@ var timestamp=new Date().getTime()；
 ### ６　提供一个js版得求菲波那契序列的第Ｎ项的非递归实现
 算法，我曾经得强项
 
-```
+<pre class="prettyprint">
 function rabbit(N){
   if (N < 3){
     return 1;
@@ -121,7 +125,7 @@ function rabbit(N){
   return rabbit;
 }
 alert(rabbit(7))
-```
+</pre>
 
 ~
 
@@ -148,9 +152,10 @@ call和apply都是用来让函数调用时切换上下文的，区别在于call�
   </div>
 </div>
 ```
+
 1) 从左到右为ABC（总宽度100%: A: 100px, B: 自适应，　C:100px）
 
-```
+<pre class="prettyprint">
 .A {
   background-color: black;
   float: left;
@@ -174,12 +179,11 @@ call和apply都是用来让函数调用时切换上下文的，区别在于call�
   width: 100%;
   overflow: hidden;
 }
-
-```
+</pre>
 
 2) 从左至右为ACB（总宽度100%: A:100px, B:自适应，　C:100px）
 
-```
+<pre class="prettyprint">
 .A {
   background-color: black;
   float: left;
@@ -205,12 +209,15 @@ call和apply都是用来让函数调用时切换上下文的，区别在于call�
   width: 100%;
   overflow: hidden;
 }
-```
+</pre>
+
 
 ~
 
 ### 9 指出在js中使用事件代理(delegate)的方法与意义
+方法：在目标元素得父元素添加事件监听器，捕获目标元素事件并处理．
 
+意义：不用为每个目标元素都创建事件监听器．
 
 ~
 

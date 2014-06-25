@@ -75,7 +75,9 @@ app.get(/([A-Za-z0-9\-]+)(\.html)?/, function(req, res) {
   if (!item) {
     res.end('not found')
   }
-  res.render('article', {article: item});
+  else{
+    res.render('article', {article: item});  
+  }
 });
 
 
