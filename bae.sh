@@ -7,5 +7,5 @@ cp -f .gitignore ../bae_online/appid1asei36n0j/
 cp -f README.md ../bae_online/appid1asei36n0j/
 cp -f bae.sh ../bae_online/appid1asei36n0j/
 cp -f config.json ../bae_online/appid1asei36n0j/
-cp -f package.json ../bae_online/appid1asei36n0j/
 cp -f server.js ../bae_online/appid1asei36n0j/
+cp -r -f node_modules ../bae_online/appid1asei36n0j/ 
