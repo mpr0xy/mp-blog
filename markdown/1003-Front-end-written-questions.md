@@ -77,6 +77,7 @@ function foo(name){
 
 <pre class="prettyprint">
 new Date().getTime()
+new Data() - 0
 </pre>
 
 在网上找到一段更详细的
@@ -135,7 +136,7 @@ call和apply都是用来让函数调用时切换上下文的，区别在于call�
 ～
 
 ### 8　写２个三列布局结构，他们共享一套HTML代码对应不同得CSS,给出具体得CSS和HTML
-```
+<pre class="prettyprint">
 <div class="main">
   <div class="A">
     A
@@ -151,7 +152,7 @@ call和apply都是用来让函数调用时切换上下文的，区别在于call�
     </div>
   </div>
 </div>
-```
+</pre>
 
 1) 从左到右为ABC（总宽度100%: A: 100px, B: 自适应，　C:100px）
 

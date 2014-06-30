@@ -59,10 +59,18 @@ app.use(morgan('short'));
 
 // default route
 app.get('/', function(req, res){
-  articles = mdb.getArticles()
+  articles = mdb.getArticles(true)
   res.render('home', {articles: articles.slice(0, 5)})
 });
 
+
+// scroll-pagination
+app.get('/scrollpage/:pageid', function(req, res){
+  articles = mdb.getArticles(true)
+  pageid = parseInt(req.params.pageid)
+
+  res.json({articles: articles.slice(pageid * 5, pageid * 5 + 5)})
+})
 
 /**
  * Display single blog post
