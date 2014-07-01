@@ -35,7 +35,9 @@ $(function(){
 });
 
 
-/* scroll back to top */
+/** scroll back to top 
+ *  http://plugins.svn.wordpress.org/scroll-back-to-top/tags/1.1.3/assets/js/scroll-back-to-top.js
+**/
 (function($){
 
   $(function(){

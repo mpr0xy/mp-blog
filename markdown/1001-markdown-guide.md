@@ -4,7 +4,7 @@
  Hidden: false
  Date: 2014-06-05 08:34:26
  Tags: markdown
- Category: guide
+ Category: Test
  Sources:
    markdown: http://wowubuntu.com/markdown/ 
 >>*/

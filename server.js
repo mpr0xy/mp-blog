@@ -55,13 +55,16 @@ app.use(bodyParser());                            // parse application/json and 
 app.use(morgan('short'));
 
 
+// loading widget
+widget = mdb.getWidget()
 
 
 // default route
 app.get('/', function(req, res){
   articles = mdb.getArticles(true)
-  res.render('home', {articles: articles.slice(0, 5)})
+  res.render('home', {articles: articles.slice(0, 5), widget: widget})
 });
+
 
 
 // scroll-pagination
@@ -84,7 +87,7 @@ app.get(/([A-Za-z0-9\-]+)(\.html)?/, function(req, res) {
     res.end('not found')
   }
   else{
-    res.render('article', {article: item});  
+    res.render('article', {article: item, widget: widget});  
   }
 });
 

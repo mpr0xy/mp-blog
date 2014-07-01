@@ -2,7 +2,7 @@
 
  Title: How JavaScript Event Delegation Works
  Date: 2014-06-25 11:34:26
- Tags: JavaScript, Event Delegation
+ Tags: javaScript, Event Delegation
  Category: Front
  Sources:
    event-delegate: http://davidwalsh.name/event-delegate

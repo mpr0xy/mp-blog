@@ -4,7 +4,7 @@
  Hidden: false
  Date: 2014-06-23 15:34:26
  Tags: grunt, auto
- Category: grunt
+ Category: Front
  Sources:
    Grunt: http://gruntjs.com/
 >>*/

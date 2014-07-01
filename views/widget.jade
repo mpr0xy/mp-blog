@@ -10,5 +10,16 @@
         p
         p
           a.contact(href='#') @Github
-      div Categories
-      div Archives
+      .widget.widget-category
+        h3 Categories
+        ul
+        - for (var i = 0; i < widget.categories.length; i++)
+          li.cat-item
+            a(href='/'+widget.categories[i].name+'/' title="View all post under the"+widget.categories[i].name) 
+              p #{widget.categories[i].name} (#{widget.categories[i].category.number})
+      .widget.widget-tags
+        h3 Tags
+        .tagcloud
+          - var color = ['#E6CC6E', '#37A7FF', '#6C9', '#B0D686', '#37A7FF', '#C9C', '#6CC', '#F96', '#F99', 'fuchsia', 'teal', 'chartreuse', 'mediumblue']
+          - for (var i = 0; i < widget.tags.length; i++)
+            a(href='/tags/'+widget.tags[i].name style='background-color: '+color[Math.floor(Math.random() * 1000) % color.length]) #{widget.tags[i].name}
