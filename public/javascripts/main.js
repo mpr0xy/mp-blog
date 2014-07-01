@@ -31,7 +31,40 @@ $(function(){
       delay += 100;
     });
   };
-       
+ 
 });
 
+
+/* scroll back to top */
+(function($){
+
+  $(function(){
+  
+    $('.scroll-back-to-top-wrapper').on('click', function(){
+      scrollToElement("body", 100, 0);
+    });
+
+    $(document).on( 'scroll', function(){
+
+      if ($(window).scrollTop() > 100) {
+        $('.scroll-back-to-top-wrapper').addClass('show');
+      } else {
+        $('.scroll-back-to-top-wrapper').removeClass('show');
+      }
+    });
+
+  });
+
+  function scrollToElement(selector, time, verticalOffset) {
+
+    time = typeof(time) != 'undefined' ? time : 1000;
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $(selector);
+    offset = element.offset();
+    offsetTop = offset.top + verticalOffset;
+    $('html, body').animate({scrollTop: offsetTop}, parseInt(time), 'linear');
+  }
+
+
+})(jQuery);
 

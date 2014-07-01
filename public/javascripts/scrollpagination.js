@@ -36,6 +36,8 @@
   $.fn.scrollPagination.loadContent = function(obj, opts){
 	 var target = opts.scrollTarget;
 	 var mayLoadContent = $(target).scrollTop()+opts.heightOffset >= $(document).height() - $(target).height();
+	 console.log($(target).scrollTop()+opts.heightOffset)
+	 console.log($(document).height() - $(target).height())
 	 if (mayLoadContent){
 		 if (opts.beforeLoad != null){
 			opts.beforeLoad(); 

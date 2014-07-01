@@ -4,11 +4,16 @@ html()
     meta(charset="utf-8")
     link(rel="stylesheet", href="/styles/bootstrap.min.css")
     link(rel="stylesheet", href="/styles/main.css")
+    link(rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" type="text/css" media="screen")
     link(rel="icon" href="favicon.ico" type="image/x-icon")
   body
     include header
     block content
     include footer
+
+    .scroll-back-to-top-wrapper
+      span.scroll-back-to-top-inner
+        i(class=['fa fa-2x fa-arrow-circle-up'])
 
   script(src="/javascripts/jquery.min.js")
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
