@@ -24,6 +24,33 @@
 
 首页加入了无限滚动翻页，全站回到顶部按钮，文章页面有言和disqus留言．文章可以通过首页，category，tags进行访问．
 
+##运维
+当然要够自动化呢，玩了一下[ansible](http://www.ansible.com/)．
+
+首先需要解决得问题是连接一台新服务器时，怎么在上面新建一个用户，把sshkey设置好，设置新用户可以sudo等，搞了几个小时（智商拙计呀），最后终于搞了一个能用得版本．playbook如下：
+<pre>
+---
+- hosts: myweb.com
+  remote_user: app
+  
+  tasks:
+  - name: add user mpr0xy
+    user: name=mpr0xy groups=sudo,adm,ssh password=$6$DKa3vzGNTkHSFQ$G7DeXh8M7prRjN4XBCd9gZdZc7O1kL6uG16jYjqwJYM6ke2OGmDIXh.YGpPfkMV8iSc0cfY9MSELm.ZudgjRC1
+  - name: copy id_rsa to myweb.com
+    copy: src=/home/mcpr0xy/.ssh/id_rsa.pub dest=/home/mpr0xy/.ssh/
+  - name: make authorized_keys
+    shell: cat /home/mpr0xy/.ssh/id_rsa.pub > /home/mpr0xy/.ssh/authorized_keys
+  - name: add sudo_user_list
+    shell: echo "mpr0xy ALL=(ALL) ALL" >> /etc/sudoers.d/sudo_user_list  
+
+</pre>
+其中password得问题参考[这里](http://docs.ansible.com/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module)
+
+但是运行这个唯一得条件是，app这个用户可以sudo运行．启动得命令
+<pre>
+ansible-playbook init.yml --ask-pass --ask-sudo-pass -s
+</pre>
+
 ##问题
 文章数目不够多，质量也不高，这个没法通过代码解决，得动脑筋继续写，继续写，继续写．昨天就遇到写Javascript的一个问题．
 <pre>

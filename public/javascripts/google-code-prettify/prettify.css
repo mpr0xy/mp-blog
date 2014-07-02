@@ -10,6 +10,7 @@ pre.prettyprint {
  overflow: hidden;
  padding: 8px;
  font-family: 'courier new';
+ font-size: 0.8em;
 }
 .prettyprint.linenums,
 pre.prettyprint.linenums {

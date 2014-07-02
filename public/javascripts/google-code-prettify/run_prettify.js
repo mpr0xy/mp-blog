@@ -1,11 +1,11 @@
 var pres = document.getElementsByTagName("pre");
 for (var i = 0; i < pres.length; i++){
-    if (pres[i].className === 'prettyprint'){
-        var code = pres[i].innerHTML;
-        code = code.replace(/[<]/g, '&lt;');
-        code = code.replace(/>/g, '&gt;');
-        pres[i].innerHTML = code;
-    }
+    // if (pres[i].className === 'prettyprint'){
+    var code = pres[i].innerHTML;
+    code = code.replace(/[<]/g, '&lt;');
+    code = code.replace(/>/g, '&gt;');
+    pres[i].innerHTML = code;
+    // }
 }
 // Copyright (C) 2013 Google Inc.
 //
