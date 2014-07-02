@@ -15,7 +15,7 @@
         ul
         - for (var i = 0; i < widget.categories.length; i++)
           li.cat-item
-            a(href='/'+widget.categories[i].name+'/' title="View all post under the"+widget.categories[i].name) 
+            a(href='/category/'+widget.categories[i].name+'/' title="View all post under the"+widget.categories[i].name) 
               p #{widget.categories[i].name} (#{widget.categories[i].category.number})
       .widget.widget-tags
         h3 Tags

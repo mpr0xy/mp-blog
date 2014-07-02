@@ -34,13 +34,13 @@ Grunt和Grunt的插件都是通过[npm](https://npmjs.org/)安装管理的，所
 ## 安装命令行接口
 为了能够启动Grunt，需要安装命令行接口，它得工作是启动
 你已经安装好的一个Grunt版本，在接下来得Gruntfile里会涉及到，这将允许多个不同版本得Grunt在你机器上允许．^_^
-```
+<pre>
 npm install -g grunt-cli
-```
+</pre>
 
 ## 命令行接口是怎么工作得
 简单介绍后，官网让我们看一段简短的代码：
-```
+<pre>
 #!/usr/bin/env node
 
 'use strict';
@@ -87,7 +87,7 @@ try {
 // Everything looks good. Require local grunt and run it.
 require(gruntpath).cli();
 
-```
+</pre>
 这段代码利用findup或resolve来得到grunt的入口文件，最后用require加载，这样就启动了项目中安装得grunt了．
 
 ## 在存着Grunt的项目里工作
@@ -125,7 +125,7 @@ Gruntfile是一个有效的js或者CoffeeScript文件，放在项目得根目录
 
 ## 一个Gruntfile
 
-```
+<pre>
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -149,24 +149,24 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['uglify']);
 
 };
-```
+</pre>
 
 ### ＂包装＂函数
 每个Gruntfile使用的基本格式
-```
+<pre>
 module.exports = function(grunt){
     // Do grunt-related things in here
 }
-```
+</pre>
 
 ### 项目和任务配置
 grunt.initConfig里，pkg是读取package.json里的元数据，而uglify是用来压缩文件的，banner是自定义的一段注释，build指定了压缩的源文件和目标文件．
 
 ### 加载Grunt插件和任务
-```
+<pre>
 // Load the plugin that provides the "uglify" task.
 grunt.loadNpmTasks('grunt-contrib-uglify');
-```
+</pre>
 插件会在package.json里作为依赖，也要在Gruntfile里加载．
 
 Note:`grunt --help`可以列出可用的任务
@@ -175,9 +175,9 @@ Note:`grunt --help`可以列出可用的任务
 你可以自定义一个或多个任务作为默认任务，这样运行`grunt`时就会运行默认任务．
 
 如果你需要的任务没在插件里，你可以使用
-```
+<pre>
 // A very basic default task.
   grunt.registerTask('default', 'Log some stuff.', function() {
     grunt.log.write('Logging some stuff...').ok();
   });
-```
+</pre>

@@ -6,7 +6,7 @@ block content
         - for (var i = 0; i < articles.length; i++)
           li.thumbnails-li
             .thumbnails-article
-              a(href=articles[i].filename)
+              a(href='/' + articles[i].filename)
                 h2.article-title #{articles[i].name}
               .article-excerpt 
                 p!=articles[i].excerpt
@@ -14,5 +14,7 @@ block content
                 p(title=articles[i].date.format('LLLL')) #{articles[i].date.fromNow()}　Tags: #{articles[i].tags.join(' ')}
       #loading.loading(style="display: none;") Wait a moment... it's loading!
       #nomoreresults.loading(style="display: none;") Sorry no more results for your!
+      input(type="hidden" id="contentType" name="contentType" value=contentType)
+      input(type="hidden" id="contentName" name="contentName" value=contentName)
 
     include widget

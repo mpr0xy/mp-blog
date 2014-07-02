@@ -56,24 +56,80 @@ app.use(morgan('short'));
 
 
 // loading widget
-widget = mdb.getWidget()
+
 
 
 // default route
 app.get('/', function(req, res){
-  articles = mdb.getArticles(true)
-  res.render('home', {articles: articles.slice(0, 5), widget: widget})
+  var articles = mdb.getArticles()
+  var widget = mdb.getWidget()
+  res.render('home', {
+    articles: articles.slice(0, 5),
+    widget: widget,
+    contentType: 'all',
+    contentName: 'all'
+  })
 });
 
 
 
 // scroll-pagination
-app.get('/scrollpage/:pageid', function(req, res){
-  articles = mdb.getArticles(true)
-  pageid = parseInt(req.params.pageid)
+app.get('/scrollpage/:type/:name/:pageid', function(req, res){
+  var articles
+  var pageid = parseInt(req.params.pageid)
+  var type = req.params.type
+  var name = req.params.name
+
+  if (type === 'all'){
+    articles = mdb.getArticles()
+  }
+  if (type === 'category'){
+    articles = mdb.getArticles(type, name)
+  }
+  if (type === 'tags'){
+    articles = mdb.getArticles(type, name)
+  }
 
   res.json({articles: articles.slice(pageid * 5, pageid * 5 + 5)})
 })
+
+
+/**
+  * Display category post
+  * @example http://xxx.com/category/front
+ **/
+app.get('/category/:categoryName', function(req, res){
+  var categoryName = req.params.categoryName
+  var widget = mdb.getWidget()
+  var articles = mdb.getArticles('category', categoryName)
+
+  res.render('home', {
+    articles: articles.slice(0, 5),
+    widget: widget,
+    contentType: 'category',
+    contentName: categoryName
+  })
+})
+
+
+/**
+  * Display tags post
+  * @example http://xxx.com/tags/javascript
+ **/
+app.get('/tags/:tagName', function(req, res){
+  var tagName = req.params.tagName
+  var widget = mdb.getWidget()
+  var articles = mdb.getArticles('tags', tagName)
+
+  res.render('home', {
+    articles: articles.slice(0, 5),
+    widget: widget,
+    contentType: 'tags',
+    contentName: tagName
+  })
+})
+
+
 
 /**
  * Display single blog post
@@ -81,7 +137,8 @@ app.get('/scrollpage/:pageid', function(req, res){
  **/
 app.get(/([A-Za-z0-9\-]+)(\.html)?/, function(req, res) {
   
-  console.log(req.params[0]);
+  // console.log(req.params[0]);
+  var widget = mdb.getWidget()
   var item = mdb.getArticle(req.params[0]);
   if (!item) {
     res.end('not found')
@@ -90,6 +147,8 @@ app.get(/([A-Za-z0-9\-]+)(\.html)?/, function(req, res) {
     res.render('article', {article: item, widget: widget});  
   }
 });
+
+
 
 
 

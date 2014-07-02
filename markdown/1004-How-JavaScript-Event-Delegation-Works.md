@@ -2,7 +2,7 @@
 
  Title: How JavaScript Event Delegation Works
  Date: 2014-06-25 11:34:26
- Tags: javaScript, Event Delegation
+ Tags: javascript, Event Delegation
  Category: Front
  Sources:
    event-delegate: http://davidwalsh.name/event-delegate
@@ -14,7 +14,7 @@
 
 现在我们有一个父元素UL，和几个子元素：
 
-<pre class="prettyprint">
+<pre>
 <ul id="parent-list">
 	<li id="post-1">Item 1</li>
 	<li id="post-2">Item 2</li>
@@ -29,7 +29,7 @@
 
 简单：当事件冒泡到ul元素时，你检查事件对象得target属性来获得实际被点击得节点得引用．这里有一个非常简单得JavaScript片段来说明事件代理．
 
-<pre class="prettyprint">
+<pre>
 // Get the element, add a click listener...
 document.getElementById("parent-list").addEventListener("click",function(e) {
 	// e.target is the clicked element!
@@ -44,7 +44,7 @@ a < b
 
 开始给父元素添加事件监听器，当事件监听器触发是，检查事件元素确保元素类型是需要得．假如这是一个LI元素，欢呼：我们拿到了我们需要得！加入没有一个元素是我们需要得，这个事件会被忽略掉．这个例子相当简单．－－UL和LI是一个直线的比较．让我们试一试一些困难得．让我们有一个父DIV有许多子元素，当是我们只关心一个有＂classA＂CSS类的A标签:
 
-<pre class="prettyprint">
+<pre>
 // Get the parent DIV, add click listener...
 document.getElementById("myDiv").addEventListener("click",function(e) {
 	// e.target was the clicked element

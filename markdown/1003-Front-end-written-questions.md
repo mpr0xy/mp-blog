@@ -36,7 +36,7 @@
 
 
 ### 2 请指出下列代码运行结果，并解释原因：
-<pre class="prettyprint">
+<pre>
 var foo = function(name){
     alert('I am ' + name);
 }
@@ -75,14 +75,14 @@ function foo(name){
 
 ### 5 使用js获取当前时间戳
 
-<pre class="prettyprint">
+<pre>
 new Date().getTime()
 new Data() - 0
 </pre>
 
 在网上找到一段更详细的
 
-<pre class="prettyprint">
+<pre>
 JavaScript 获取当前时间戳：
 第一种方法：
 
@@ -111,7 +111,7 @@ var timestamp=new Date().getTime()；
 ### ６　提供一个js版得求菲波那契序列的第Ｎ项的非递归实现
 算法，我曾经得强项
 
-<pre class="prettyprint">
+<pre>
 function rabbit(N){
   if (N < 3){
     return 1;
@@ -136,7 +136,7 @@ call和apply都是用来让函数调用时切换上下文的，区别在于call�
 ～
 
 ### 8　写２个三列布局结构，他们共享一套HTML代码对应不同得CSS,给出具体得CSS和HTML
-<pre class="prettyprint">
+<pre>
 <div class="main">
   <div class="A">
     A
@@ -156,7 +156,7 @@ call和apply都是用来让函数调用时切换上下文的，区别在于call�
 
 1) 从左到右为ABC（总宽度100%: A: 100px, B: 自适应，　C:100px）
 
-<pre class="prettyprint">
+<pre>
 .A {
   background-color: black;
   float: left;
@@ -184,7 +184,7 @@ call和apply都是用来让函数调用时切换上下文的，区别在于call�
 
 2) 从左至右为ACB（总宽度100%: A:100px, B:自适应，　C:100px）
 
-<pre class="prettyprint">
+<pre>
 .A {
   background-color: black;
   float: left;
