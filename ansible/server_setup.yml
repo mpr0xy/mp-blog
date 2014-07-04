@@ -1,0 +1,53 @@
+---
+- hosts: myweb.com
+  remote_user: mpr0xy
+  sudo: True
+  
+  vars:
+    app_dir: /data/apps
+    etc_dir: /data/etc
+    log_dir: /data/log
+    run_dir: /data/run
+    repo_url: https://github.com/mpr0xy/my-blog.git
+    repo_remote: origin
+    repo_version: master
+  
+  tasks:
+    - name: install nodejs
+      apt: name=nodejs state=present
+    - name: install npm
+      apt: name=npm state=present
+    - name: install nginx
+      action: apt name=$item state=installed
+      with_items:
+        - git
+        - nginx
+        - python-pip
+    - name: install supervisor
+      action: pip name=supervisor state=present
+      
+    - name: create directory
+      action: file dest=${app_dir} state=directory
+      action: file dest=${etc_dir} state=directory
+      action: file dest=${log_dir} state=directory
+      action: file dest=${run_dir} state=directory  
+    
+    - name: create soft directory
+      action: file dest=${etc_dir}/nginx state=directory
+      action: file dest=${etc_dir}/nginx/enabled state=directory
+      action: file dest=${etc_dir}/supervisor state=directory
+      
+    - name: create log directory
+      action: file dest=${log_dir}/nginx state=directory
+      action: file dest=${log_dir}/supervisor state=directory
+      action: file dest=${log_dir}/apps state=directory
+      
+    - name: supervisord config
+      action: template src=templates/supervisord.conf dest=/etc/supervisord.conf mode=0755
+      action: template src=templates/supervisord.sh dest=/etc/init.d/supervisord mode=0755
+      action: service name=supervisord state=started enabled=yes
+    
+    - name: nginx config
+      action: file path=/etc/nginx/sites-enabled/default state=absent
+      action: template src=templates/nginx.conf dest=/etc/nginx/nginx.conf
+      action: service name=nginx state=restarted

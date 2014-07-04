@@ -15,7 +15,7 @@ GRUNT
 
 官方网站有一个预览，我截了一个图,可以看到运行grunt后，依次完成了很多任务，最后输出全部完成没有错误．
 
-![grunt preview](http://v1.freep.cn/3tb_140624105405bqf1512293.png)
+![grunt preview](#)
 
 
 如何开始

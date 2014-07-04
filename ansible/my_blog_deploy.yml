@@ -1,0 +1,44 @@
+---
+- hosts: myweb.com
+  remote_user: mpr0xy
+  sudo: True
+  
+  vars:
+    app_dir: /data/apps
+    etc_dir: /data/etc
+    log_dir: /data/log
+    run_dir: /data/run
+    app_name: my-blog
+    repo_url: https://github.com/mpr0xy/my-blog.git
+    repo_remote: origin
+    repo_version: master
+  
+  tasks:
+    - name: create nginx site config
+      action: template src=templates/nginx_site/${app_name}.conf dest=/data/etc/nginx/sites-enabled/${app_name}.conf
+      notify:
+        - restart nginx
+    
+    - name: deploy code from repository
+      action: git repo=$repo_url dest=${app_dir}/${app_name} accept_hostkey=yes
+    
+    - name: install npm for app
+      command: npm install chdir=${app_dir}/${app_name}
+    
+    - name: make config.json
+      command: cp config-example.json config.json chdir=${app_dir}/${app_name}
+    
+    - name: create supervisor program config
+      action: template src=templates/supervisor/${app_name}.conf dest=${etc_dir}/supervisor/${app_name}.conf
+      notify:
+        - update supervisorctl
+    
+    - name: start app
+      action: supervisorctl name=$app_name state=started
+      
+  handlers:
+    - name: update supervisorctl
+      action: shell supervisorctl update
+      
+    - name: restart nginx
+      action: service name=nginx state=restarted
