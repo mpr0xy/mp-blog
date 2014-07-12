@@ -28,7 +28,8 @@
 当然要够自动化呢，玩了一下[ansible](http://www.ansible.com/)．
 
 首先需要解决得问题是连接一台新服务器时，怎么在上面新建一个用户，把sshkey设置好，设置新用户可以sudo等，搞了几个小时（智商拙计呀），最后终于搞了一个能用得版本．playbook如下：
-<pre>
+
+```
 ---
 - hosts: myweb.com
   remote_user: app
@@ -43,7 +44,8 @@
   - name: add sudo_user_list
     shell: echo "mpr0xy ALL=(ALL) ALL" >> /etc/sudoers.d/sudo_user_list  
 
-</pre>
+```
+
 其中password得问题参考[这里](http://docs.ansible.com/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module)
 
 但是运行这个唯一得条件是，app这个用户可以sudo运行．启动得命令

@@ -1,11 +1,11 @@
 ---
-- hosts: myweb.com
-  remote_user: app
+- hosts: blog.mpr0xy.com
+  remote_user: root
   
   tasks:
   - name: add user mpr0xy
-    user: name=mpr0xy groups=sudo,adm,ssh password=$6$DKa3vzGNTkHSFQ$G7DeXh8M7prRjN4XBCd9gZdZc7O1kL6uG16jYjqwJYM6ke2OGmDIXh.YGpPfkMV8iSc0cfY9MSELm.ZudgjRC1
-  - name: copy id_rsa to myweb.com
+    user: name=mpr0xy groups=sudo,adm,ssh password=your password hash
+  - name: copy id_rsa to blog.mpr0xy.com
     copy: src=/home/mcpr0xy/.ssh/id_rsa.pub dest=/home/mpr0xy/.ssh/
   - name: make authorized_keys
     shell: cat /home/mpr0xy/.ssh/id_rsa.pub > /home/mpr0xy/.ssh/authorized_keys
