@@ -3,6 +3,8 @@ block content
   .container
     .content
       ul.thumbnails
+        span.condensed(id="condensed")
+          i(class="fa fa-list-ul" title="Condensed")
         - for (var i = 0; i < articles.length; i++)
           li.thumbnails-li
             .thumbnails-article

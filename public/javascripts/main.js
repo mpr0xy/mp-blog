@@ -1,3 +1,6 @@
+/**
+ * 无限滚动翻页
+**/
 $(function(){
   $('.thumbnails').scrollPagination({
     'contentPage': '/scrollpage/' + $('#contentType').val() + '/' + $('#contentName').val() + '/', // the url you are fetching the results
@@ -71,8 +74,31 @@ $(function(){
 })(jQuery);
 
 
+/*
+ *为代码高亮插件对应得代码添加class
+*/
 $(function() {
   $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
   window.prettyPrint && prettyPrint();
 });
 
+
+/*
+ * 隐藏摘要
+*/
+$(function() {
+
+  window.excerpt_show = true;
+  
+  $('#condensed').on('click', function(){
+    $excerpt = $('.article-excerpt')
+    if(window.excerpt_show === true){
+      $excerpt.fadeOut();
+      window.excerpt_show = false;  
+    }
+    else{
+      $excerpt.fadeIn();
+      window.excerpt_show = true;
+    }    
+  })
+});

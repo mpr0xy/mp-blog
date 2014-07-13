@@ -64,7 +64,7 @@ app.get('/', function(req, res){
   var articles = mdb.getArticles()
   var widget = mdb.getWidget()
   res.render('home', {
-    articles: articles.slice(0, 5),
+    articles: articles.slice(0, 7),
     widget: widget,
     contentType: 'all',
     contentName: 'all'
@@ -90,7 +90,7 @@ app.get('/scrollpage/:type/:name/:pageid', function(req, res){
     articles = mdb.getArticles(type, name)
   }
 
-  res.json({articles: articles.slice(pageid * 5, pageid * 5 + 5)})
+  res.json({articles: articles.slice(pageid * 7, pageid * 7 + 7)})
 })
 
 
