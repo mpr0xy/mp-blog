@@ -102,7 +102,6 @@ app.get('/category/:categoryName', function(req, res){
   var categoryName = req.params.categoryName
   var widget = mdb.getWidget()
   var articles = mdb.getArticles('category', categoryName)
-
   res.render('home', {
     articles: articles.slice(0, 5),
     widget: widget,

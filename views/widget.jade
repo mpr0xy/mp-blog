@@ -23,3 +23,10 @@
           - var color = ['#E6CC6E', '#37A7FF', '#6C9', '#B0D686', '#37A7FF', '#C9C', '#6CC', '#F96', '#F99', 'fuchsia', 'teal', 'chartreuse', 'mediumblue']
           - for (var i = 0; i < widget.tags.length; i++)
             a(href='/tags/'+widget.tags[i].name style='background-color: '+color[Math.floor(Math.random() * 1000) % color.length]) #{widget.tags[i].name}
+      .widget.widget-links
+        h3 Links
+        ul
+        - for(var i = 0; i < widget.links.length; i++)
+          li.link-item
+            a(href=widget.links[i].href title=widget.links[i].name)
+              p #{widget.links[i].name}
