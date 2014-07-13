@@ -9,7 +9,7 @@
         p 这个博客用来使自己能逐渐提高．当然也为了读者．
         p
         p
-          a.contact(href='https://github.com/mpr0xy') @Github
+          a.contact(href='https://github.com/mpr0xy' target='_blank') @Github
       .widget.widget-category
         h3 Categories
         ul
@@ -27,6 +27,6 @@
         h3 Links
         ul
         - for(var i = 0; i < widget.links.length; i++)
-          li.link-item
-            a(href=widget.links[i].href title=widget.links[i].name)
+          li.link-item 
+            a(href=widget.links[i].href title=widget.links[i].name target='_blank')
               p #{widget.links[i].name}

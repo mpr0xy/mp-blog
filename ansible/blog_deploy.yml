@@ -16,8 +16,13 @@
   tasks:
     - name: create nginx site config
       action: template src=templates/nginx_site/${app_name}.conf dest=/data/etc/nginx/sites-enabled/${app_name}.conf
+      tags:
+         - update_nginx_site_config
+
     - name: restart nginx
       action: service name=nginx state=restarted
+      tags:
+         - restart_nginx
 
     - name: deploy code from repository
       action: git repo=$repo_url dest=${app_dir}/${app_name} accept_hostkey=yes
