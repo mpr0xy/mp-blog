@@ -70,7 +70,6 @@ app.get('/', function(req, res){
     contentName: 'all',
     cdn: config.cdn
   })
-  console.log(config.cdn)
 });
 
 
