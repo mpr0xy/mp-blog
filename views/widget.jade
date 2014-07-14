@@ -26,6 +26,7 @@
       .widget.widget-links
         h3 Links
         ul
+        - widget.links.sort(function() {return Math.random() - 0.5})
         - for(var i = 0; i < widget.links.length; i++)
           li.link-item 
             a(href=widget.links[i].href title=widget.links[i].name target='_blank')
