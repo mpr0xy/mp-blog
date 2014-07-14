@@ -2,10 +2,10 @@ doctype
 html()
   head
     meta(charset="utf-8")
-    link(rel="stylesheet", href="/styles/bootstrap.min.css")
-    link(rel="stylesheet" id="font-awesome-css" href="/styles/font-awesome/4.1.0/css/font-awesome.css" type="text/css" media="screen")
-    link(rel="icon" href="favicon.ico" type="image/x-icon")
-    link(rel="stylesheet", href="/styles/main.css")
+    link(rel="stylesheet", href=cdn + "/styles/bootstrap.min.css")
+    link(rel="stylesheet" id="font-awesome-css" href=cdn + "/styles/font-awesome/4.1.0/css/font-awesome.css" type="text/css" media="screen")
+    link(rel="icon" href=cdn + "/favicon.ico" type="image/x-icon")
+    link(rel="stylesheet", href=cdn + "/styles/main.css")
   body
     include header
     block content
@@ -15,9 +15,9 @@ html()
       span.scroll-back-to-top-inner
         i(class=['fa fa-2x fa-arrow-circle-up'])
 
-  script(src="/javascripts/jquery.min.js")
+  script(src=cdn + "/javascripts/jquery.min.js")
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-  script(src="/javascripts/bootstrap.min.js")
-  script(src="/javascripts/google-code-prettify/run_prettify.js")
-  script(src="/javascripts/scrollpagination.js")
-  script(src="/javascripts/main.js")
+  script(src=cdn + "/javascripts/bootstrap.min.js")
+  script(src=cdn + "/javascripts/google-code-prettify/run_prettify.js")
+  script(src=cdn + "/javascripts/scrollpagination.js")
+  script(src=cdn + "/javascripts/main.js")

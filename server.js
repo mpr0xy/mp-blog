@@ -67,8 +67,10 @@ app.get('/', function(req, res){
     articles: articles.slice(0, 7),
     widget: widget,
     contentType: 'all',
-    contentName: 'all'
+    contentName: 'all',
+    cdn: config.cdn
   })
+  console.log(config.cdn)
 });
 
 
@@ -90,7 +92,9 @@ app.get('/scrollpage/:type/:name/:pageid', function(req, res){
     articles = mdb.getArticles(type, name)
   }
 
-  res.json({articles: articles.slice(pageid * 7, pageid * 7 + 7)})
+  res.json({
+    articles: articles.slice(pageid * 7, pageid * 7 + 7)
+  })
 })
 
 
@@ -106,7 +110,8 @@ app.get('/category/:categoryName', function(req, res){
     articles: articles.slice(0, 5),
     widget: widget,
     contentType: 'category',
-    contentName: categoryName
+    contentName: categoryName,
+    cdn: config.cdn
   })
 })
 
@@ -124,7 +129,8 @@ app.get('/tags/:tagName', function(req, res){
     articles: articles.slice(0, 5),
     widget: widget,
     contentType: 'tags',
-    contentName: tagName
+    contentName: tagName,
+    cdn: config.cdn
   })
 })
 
@@ -143,7 +149,10 @@ app.get(/([A-Za-z0-9\-]+)(\.html)?/, function(req, res) {
     res.end('not found')
   }
   else{
-    res.render('article', {article: item, widget: widget});  
+    res.render('article', {
+      article: item, widget: widget,
+      cdn: config.cdn
+    });  
   }
 });
 
