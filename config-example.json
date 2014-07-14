@@ -6,5 +6,6 @@
   "disqus": "mpr0xy",
   "paths": {
     "articles": "markdown"
-  }
+  },
+  "cdn": "http://blogcdn.aliapp.com"
 }
