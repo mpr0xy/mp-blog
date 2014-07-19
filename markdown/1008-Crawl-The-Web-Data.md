@@ -58,7 +58,7 @@ function requestHandler(err, res, callback, i){
 }
 </pre>
 
-###遇到的问题
+##遇到的问题
 * ###正则表达式
 
     一开始没有用jsdom，而是使用了正则表达式，还纠结在了怎么样用dot match newline,`[\s\S]`.然后就把js的得正则对象和字符对象得正则相关的函数恶补了下，回头还得接着看．

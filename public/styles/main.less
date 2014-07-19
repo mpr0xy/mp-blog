@@ -41,6 +41,16 @@ table {
 */
 
 /* main.css */
+
+body {
+  padding-top: 60px;
+}
+
+#blog-name {
+  color: #419641;
+}
+
+
 .header {
   width: 100%;
   background: #242d36;
@@ -95,10 +105,6 @@ table {
   border-color: #f77e75
 }
 
-.container {
-  margin: 20px auto;
-  overflow: hidden;
-}
 .debug {
   border-style: solid
 }
@@ -159,6 +165,9 @@ table {
   margin-bottom: 30px;
 }
 
+.article-excerpt pre {
+  margin-bottom: 10px; 
+}
 
 
 .comment {
@@ -170,9 +179,6 @@ table {
 }
 
 .widget-area {
-  float: right;
-  width: 20%;
-  height: 100%;
   overflow: hidden;
   margin-top: 20px;
 }
@@ -218,9 +224,7 @@ p .contact {
 
 /* home.jade */
 .thumbnails {
-  margin: 0 25% 0 0;
   margin-top: 20px;
-  padding-left: 20px;
 }
 
 .loading {

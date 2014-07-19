@@ -102,3 +102,14 @@ $(function() {
     }    
   })
 });
+
+/*
+ * 相应搜索框
+ */
+$(function() {
+  $('#search').keyup(function(){
+    if(event.keyCode == 13){
+      window.location = 'http://search.aol.com/aol/search?s_it=topsearchbox.search&v_t=na&q=site%3Ablog.mpr0xy.com+' + $(this).val();
+    }
+  });
+});
