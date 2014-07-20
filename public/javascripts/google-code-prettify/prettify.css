@@ -8,6 +8,7 @@ pre.prettyprint {
  background-color: #272822;
  border: 1px solid #272822;
  overflow: hidden;
+ margin-left: 20px;
  padding: 8px;
  font-family: 'courier new';
  font-size: 0.8em;
