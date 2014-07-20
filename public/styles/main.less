@@ -68,6 +68,14 @@ body {
   padding: 0 20px;
 }
 
+.nav li a:hover {
+  border-top: 5px solid #ffc75c;
+}
+
+.nav li .active {
+  border-top: 1px solid #f96c28;
+}
+
 .header h3 {
   float: left;
   margin: 0 0 0 0;
@@ -154,16 +162,28 @@ body {
 .article-data {
   font-size: 18px;
   font-weight: 100;
-  line-height: 30px;
+  line-height: 1.7em;
 }
 
 .article-data p {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.article-data ul, .article-data ol, .article-data pre{
-  margin-bottom: 30px;
+.article-data pre{
+  margin-bottom: 20px;
 }
+
+.article-excerpt ol, .article-data ol, .article-excerpt ul, .article-data ul {
+  margin: 0 0 20px 20px;
+}
+.article-data ul li, .article-excerpt ul li {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 20px;
+  list-style-type: none;
+  background: url(../images/bullet.png) no-repeat 0 10px;
+}
+
 
 .article-excerpt pre {
   margin-bottom: 10px; 
