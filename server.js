@@ -64,7 +64,7 @@ app.get('/', function(req, res){
   var articles = mdb.getArticles()
   var widget = mdb.getWidget()
   res.render('home', {
-    articles: articles.slice(0, 7),
+    articles: articles.slice(0, config.pages),
     widget: widget,
     contentType: 'all',
     contentName: 'all',
@@ -92,7 +92,7 @@ app.get('/scrollpage/:type/:name/:pageid', function(req, res){
   }
 
   res.json({
-    articles: articles.slice(pageid * 7, pageid * 7 + 7)
+    articles: articles.slice(pageid * config.pages, pageid * config.pages + config.pages)
   })
 })
 
@@ -106,7 +106,7 @@ app.get('/category/:categoryName', function(req, res){
   var widget = mdb.getWidget()
   var articles = mdb.getArticles('category', categoryName)
   res.render('home', {
-    articles: articles.slice(0, 5),
+    articles: articles.slice(0, config.pages),
     widget: widget,
     contentType: 'category',
     contentName: categoryName,
@@ -125,7 +125,7 @@ app.get('/tags/:tagName', function(req, res){
   var articles = mdb.getArticles('tags', tagName)
 
   res.render('home', {
-    articles: articles.slice(0, 5),
+    articles: articles.slice(0, config.pages),
     widget: widget,
     contentType: 'tags',
     contentName: tagName,
@@ -133,6 +133,36 @@ app.get('/tags/:tagName', function(req, res){
   })
 })
 
+
+/**
+ * response article name from id
+ * @examle http://xxx.com/article-name/1001
+ **/
+app.get('/articlebeforandnext/:id', function(req, res){
+  var id = Number(req.params.id)
+  var before = mdb.getArticle(id - 1)
+  var next = mdb.getArticle(id + 1)
+  var empty = {
+        filename: '',
+        name: ''
+      }
+  if (!before){
+    before = empty
+  }
+  if (!next){
+    next = empty
+  }
+  res.json({
+    before: {
+      filename: before.filename,
+      name: before.name
+    },
+    next: {
+      filename: next.filename,
+      name: next.name
+    }
+  })
+});
 
 
 /**
@@ -149,7 +179,8 @@ app.get(/([A-Za-z0-9\(\)\-]+)(\.html)?/, function(req, res) {
   }
   else{
     res.render('article', {
-      article: item, widget: widget,
+      article: item, 
+      widget: widget,
       cdn: config.cdn
     });  
   }

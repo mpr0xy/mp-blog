@@ -2,12 +2,16 @@ extend layout
 block content
   .container
     .row
-      .col-md-9
+      .col-md-9.row-article
         h1.article-title #{article.name}
+        input.article-id(type='hidden', value=article.id)
         .article-info
           p #{article.date.format('LLLL')}　tags: #{article.tags.join(' ')} 
         .article-data 
           !=article.html
+        .before-and-next.cf
+          a.before-article
+          a.next-article
         .comment
           // Nav tabs
           ul.nav.nav-tabs
@@ -37,5 +41,6 @@ block content
                 a(href="http://disqus.com/?ref_noscript") comments powered by Disqus.
               a.dsq-brlink(href='http://disqus.com') comments powered by
                 span.logo-disqus Disqus
-      .col-md-3
-        include widget  
+      .col-md-3.row-widget
+        include widget
+

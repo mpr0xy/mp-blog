@@ -110,7 +110,7 @@ function parseArticleToHtml(articles){
 		articleHtml += '<a href="' + articles[key].filename + '">'
 		articleHtml += '<h2 class="article-title">' + articles[key].name + '</h2>'
 		articleHtml += '</a>'
-		articleHtml += '<div class="article-excerpt">' + articles[key].excerpt + '</div>'
+		// articleHtml += '<div class="article-excerpt">' + articles[key].excerpt + '</div>'
 		articleHtml += '<div class="article-info">'
 		articleHtml += '<p title="' + articles[key].date_format + '">' + articles[key].date_fromNow + " "
 		articleHtml += 'Tags: ' + articles[key].tags.join(" ")

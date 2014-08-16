@@ -88,7 +88,7 @@ $(function() {
 */
 $(function() {
 
-  window.excerpt_show = true;
+  window.excerpt_show = false;
   
   $('#condensed').on('click', function(){
     $excerpt = $('.article-excerpt')
@@ -113,3 +113,39 @@ $(function() {
     }
   });
 });
+
+/*
+ * edit title and get before and next article
+ */
+$(function(){
+  if ($('.article-data').length){
+    $('title').text($('.article-title').text() + ' ---> by mpr0xy')
+    var articleId = $('.article-id').val()
+    $.ajax({
+      type: 'GET',
+      url: /articlebeforandnext/ + articleId,
+      success: function(data){
+        var $before = $('.before-article')
+        var $next = $('.next-article')
+        if (!data.before.filename){
+          $before.attr('href', '/')
+          $before.text('回到首页')
+        }
+        else{
+          $before.attr('href', data.before.filename)
+          $before.text('<  ' + data.before.name) 
+        }
+        if (!data.next.filename){
+          $next.attr('href', '/')
+          $next.text('回到首页')
+        }
+        else{
+          $next.attr('href', data.next.filename)
+          $next.text(data.next.name + '  >')
+        }
+      },
+      dataType: 'json'
+    });
+  }
+});
+

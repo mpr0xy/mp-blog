@@ -46,6 +46,23 @@ body {
   padding-top: 60px;
 }
 
+/* For modern browsers */
+.cf:before,
+.cf:after {
+  content:"";
+  display:table;
+}
+
+.cf:after {
+clear:both;
+}
+
+
+/* For IE 6/7 (triggers hasLayout) */
+.cf {
+  *zoom:1;
+}
+
 #blog-name {
   color: #419641;
 }
@@ -154,15 +171,17 @@ body {
 }
 
 .article-excerpt {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7em;
   font-weight: 80;
+  display: none;
 }
 
 .article-data {
   font-size: 18px;
   font-weight: 100;
   line-height: 1.7em;
+  margin-top: 25px;
 }
 
 .article-data p {
@@ -192,9 +211,31 @@ body {
   background: url(../images/bullet.png) no-repeat 0 10px;
 }
 
+.row-article {
+  width: 100%;
+}
+
+.row-widget {
+  width: 0%;
+}
 
 .article-excerpt pre {
   margin-bottom: 10px; 
+}
+
+.before-and-next {
+  margin: 35px 0;
+  font-size: 1.2em; 
+}
+
+.before-article {
+  color: #649F0C;
+  float: left;
+}
+
+.next-article {
+  color: #649F0C;
+  float: right;
 }
 
 
@@ -269,7 +310,7 @@ p .contact {
 
 .thumbnails-li {
   padding-bottom: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   border-bottom: 1px dashed #d9d9d9;
 }
 
