@@ -119,7 +119,7 @@ $(function() {
  */
 $(function(){
   if ($('.article-data').length){
-    $('title').text($('.article-title').text() + ' ---> by mpr0xy')
+    document.title = $('.article-title').text() + ' ---> by mpr0xy'
     var articleId = $('.article-id').val()
     $.ajax({
       type: 'GET',
