@@ -73,6 +73,11 @@ app.get('/', function(req, res){
 });
 
 
+// projects route
+app.get(/project.?/, function(req, res){
+  res.render('projects')
+});
+
 
 // scroll-pagination
 app.get('/scrollpage/:type/:name/:pageid', function(req, res){
