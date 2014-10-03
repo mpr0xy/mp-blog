@@ -174,7 +174,7 @@ app.get('/articlebeforandnext/:id', function(req, res){
  * Display single blog post
  * @example http://xxx.com/markdown-guide-3158.html
  **/
-app.get(/([A-Za-z0-9\(\)\-]+)(\.html)?/, function(req, res) {
+app.get(/([A-Za-z0-9\(\)\-\.]+)(\.html)?/, function(req, res) {
   
   // console.log(req.params[0]);
   var widget = mdb.getWidget()
