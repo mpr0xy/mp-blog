@@ -17,7 +17,7 @@ def deploy(branch):
     sudo('git reset --hard origin/' + branch)
     sudo('cp -f config-example.json config.json')
     sudo('supervisorctl update')
-    sudo('supervisorctl restart my-blog')
+    sudo('supervisorctl restart mpr0xy-blog')
 
 
 
