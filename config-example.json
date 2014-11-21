@@ -7,6 +7,6 @@
   "paths": {
     "articles": "markdown"
   },
-  "cdn": "http://blogcdn.aliapp.com",
+  "cdn": "",
   "pages": 14
 }
