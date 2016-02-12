@@ -8,17 +8,17 @@
    me: http://mpr0xy.com
 >>*/
 
-####前言
+#### 前言
 其实写这些没什么意思，因为[jQuery官网](http://learn.jquery.com/using-jquery-core/)都有．可是好记性不如写过一次．谁让自己记性不好呢．
-
-###$ vs $()
+ 
+### $ vs $()
 
 $和$()的区别．简单来说就两点
 
 * `$('#id')` 这样生成的时jQuery对象，这些对象调用得方法都时在`$.fn`这个命名空间里，方法里的`this`指向选择器选中对象本身．
 * 通过`$`调用的是一般方法，不能和选择器一起工作，而且也不自动传递参数，返回值也是变化的．比如`$.map`
 
-###$( document ).ready()
+### $( document ).ready()
 <pre>
 // A $( document ).ready() block.
 $( document ).ready(function() {
@@ -34,7 +34,7 @@ $(function() {
 </pre>
 当然还有`$( window ).load(function() { ... })`这个函数用来等待页面所有东西加载完成（包括图片和框架）才执行代码．
 
-###避免和其他库冲突
+### 避免和其他库冲突
 * 让jQuery进入不冲突模式:
 
 <pre>
@@ -81,7 +81,7 @@ jQuery(function($){
 });
 </pre>
 
-###Attributes
+### Attributes
 作为setter:
 
 <pre>
@@ -99,7 +99,7 @@ $( "a" ).attr({
 $( "a" ).attr( "href" ); // Returns the href for the first a element in the document
 </pre>
 
-###选择元素
+### 选择元素
 选择元素得方法比较多，根本没法一下记住，但是有几个关键的点：
 
 * 判断一个选择器返回得内容是否为空，下面的代码是错误的：
@@ -141,7 +141,7 @@ $( "#content" )
 $( "h1" ).html().addClass( "test" );
 </pre>
     
-###操作元素
+### 操作元素
 下面代码经常会用:
 <pre>
 .html() – Get or set the HTML contents.
@@ -212,7 +212,7 @@ $( "#myDiv a:first" ).attr( "href", function( idx, href ) {
 });
 </pre>
 
-###jQuery对象
+### jQuery对象
 * 同一个DOM元素生成得jQuery对象不相对，看代码就明白，要相等，需要利用.get(0)获得第一个DOM元素,DOM元素是可以相等的：
    
 <pre>
